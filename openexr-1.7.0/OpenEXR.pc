@@ -1,0 +1,11 @@
+prefix=/tmp/scratch/openexr-project/openexr-1.7.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+OpenEXR_includedir=${prefix}/include/OpenEXR
+
+Name: OpenEXR
+Description: OpenEXR image library
+Version: 1.7.0
+Libs: -L${libdir} -L/tmp/scratch/openexr-project/ilmbase-1.0.2/lib -L/usr/lib64 -L/usr/local/lib -lIlmImf -lz -lImath -lHalf -lIex -lIlmThread -lpthread
+Cflags:  -I/tmp/scratch/openexr-project/ilmbase-1.0.2/include/OpenEXR -I${OpenEXR_includedir}
