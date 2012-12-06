@@ -29,15 +29,6 @@ LIBDIR=-Lilmbase-1.0.2 -Lilmbase-1.0.2/Half -Lilmbase-1.0.2/Half/.libs -Lilmbase
 
 LIBS=-lIlmImf
 
-
-# -----------------------------------------------------------------------------
-# Main Compilation
-#
-
-bin/main.out : src/main.cpp ILM_BASE OpenEXR
-	$(CXX) $(CXXFLAGS) $(LIBDIR) $(ILM_INCLUDE_DIR) $(OPENEXR_INCLUDE_DIR) $^ $(LIBS) -o bin/main.out
-
-
 # -----------------------------------------------------------------------------
 # External Library Compilation
 # 
@@ -71,4 +62,17 @@ CLEAN_OPENEXR :
 
 clean : CLEAN_ILM CLEAN_OPENEXR
 	rm bin/main.out
+
+
+
+# -----------------------------------------------------------------------------
+# Main Compilation
+#
+
+bin/main.out : src/main.cpp ILM_BASE OpenEXR
+	$(CXX) $(CXXFLAGS) $(LIBDIR) $(ILM_INCLUDE_DIR) $(OPENEXR_INCLUDE_DIR) $^ $(LIBS) -o $@
+
+bin/main-preston.out : src/main-preston.cpp
+	$(CXX) $(CXXFLAGS) $(LIBDIR) $(ILM_INCLUDE_DIR) $(OPENEXR_INCLUDE_DIR) $^ $(LIBS) -o $@
+
 
